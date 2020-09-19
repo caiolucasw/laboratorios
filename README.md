@@ -1,4 +1,4 @@
-# Laboratorios
+# Laboratórios
 Entrega de Laboratórios
 
 # Nome e RA
