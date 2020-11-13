@@ -1,3 +1,3 @@
-## Laboratório SQL no NHANES
+## Tarefa de sentenças SQL para dados do Nutrition Examination Survey
 
-#### Análise de tabelas com dados de pacientes de diversas idades.
+> [link](./notebook/nhanes-lab-02.ipynb)
