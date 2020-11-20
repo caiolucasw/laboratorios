@@ -80,7 +80,7 @@ Proponha um tipo de análise e escreva uma sentença em Cypher que realize a an�
 
 ### Resolução
 
-Podemos verificar todos os efeitos colaterais relatados para cada uma das drogas que tenha pelo menos peso 30, ou seja, fazer uma conexão entre dois efeitos colaterais ocasionados por aquele remédio.
+Podemos verificar todos os efeitos colaterais relatados para cada uma das drogas que tenha pelo menos peso 30, ou seja, fazer uma conexão entre dois efeitos colaterais ocasionados por aquele remédio que tiveram pelo menos 30 casos registrados.
 
 ~~~cypher
 MATCH (s1: SideEffect)-[r1:relacao]->[d:Drug]<-[r2:relacao]-(s2:SideEffect)
