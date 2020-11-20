@@ -6,7 +6,7 @@ Escreva uma sentença em Cypher que crie o medicamento de nome `Metamizole`, có
 
 ### Resolução
 ~~~cypher
- CREATE (:Drug {drugbank: "DB04817", name:"Metamizole"}
+ CREATE (:Drug {drugbank: "DB04817", name:"Metamizole"})
 ~~~
 
 ## Exercício 2
