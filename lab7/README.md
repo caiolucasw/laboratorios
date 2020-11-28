@@ -28,9 +28,20 @@ ORDER BY score DESC, name ASC
 Departing from a Drug-Drug graph created in a previous lab, whose relationship determines drugs taken together, apply a community detection in it to see the results:
 
 ~~~cypher
-(escreva aqui a resolução em Cypher)
+CALL gds.graph.create(
+  'drugGraph',
+  'Drug',
+  {
+    Relates: {
+      orientation: 'UNDIRECTED'
+    }
+  }
+)
+
+
+CALL gds.louvain.stream('drugGraph')
+YIELD nodeId, communityId
+RETURN gds.util.asNode(nodeId).name AS name, communityId
+ORDER BY communityId ASC
 ~~~
 
-> Coloque aqui a imagem resultante conforme o exemplo (não obrigatório, mas sugerido - imagem produzida pelo CytoScape ou Gephi).
-
-![Comunidade](images/comunidade-cytoscape.png)
