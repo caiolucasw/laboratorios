@@ -44,12 +44,12 @@ YIELD nodeId, communityId
 RETURN gds.util.asNode(nodeId).name AS name, communityId
 ORDER BY communityId ASC
 
-CALL gds.louvain.stream('DrugGraph')
+CALL gds.louvain.stream('drugGraph')
 YIELD nodeId, communityId
 MATCH (p:Drug {code: gds.util.asNode(nodeId).code})
 SET p.community = communityId
 
-CALL gds.louvain.stream('DrugGraph')
+CALL gds.louvain.stream('drugGraph')
 YIELD nodeId, communityId
 RETURN gds.util.asNode(nodeId).name AS name, communityId
 
