@@ -88,30 +88,6 @@ for $p in ($publi//publication),
     $c in ($publi//categories/category)
 where $p/key = $c/@key and $c/label[@lang = 'en-US'] = 'e-Science Domain'
 return data($p/title)
-
-## Tarefas com DRON e PubChem
-
-## Questão 1
-
-Liste o nome de todas as classificações que estão apenas dois níveis imediatamente abaixo da raiz.
-
-### Resolução
-~~~xquery
-let $dron := doc('https://raw.githubusercontent.com/santanche/lab2learn/master/data/faers-2017-dron/dron.xml')
-for $d in ($dron/drug/drug)
-let $gr := $d/@name
-group by $gr
-return {data($gr), '&#xa;'}
-
-
-## Questão 2
-
-Apresente todas as classificações de um componente a sua escolha (diferente de `Acetylsalicylic Acid`) que estejam hierarquicamente dois níveis acima. Note que no exemplo dado em sala foi considerado um nível hierárquico acima.
-
-### Resolução
-~~~xquery
-let $dron := doc('https://raw.githubusercontent.com/santanche/lab2learn/master/data/faers-2017-dron/dron.xml')
-return {data($dron//drug[drug/drug/@name='MEGESTROL']/@name)}
 ~~~
 
 ## Questão 3
@@ -151,8 +127,6 @@ let $pchem := doc('https://raw.githubusercontent.com/santanche/lab2learn/master/
 
 for $d in ($dron//drug),	
     $p in ($pubchem//RegistryID)
-    
 where concat('http://purl.obolibrary.org/obo/CHEBI_', substring($p/text(), 7)) = $d/@id
-
 return {data($p), data($d/@name), '&#xa;'}
 ~~~
